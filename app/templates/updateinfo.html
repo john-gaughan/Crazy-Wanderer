@@ -1,0 +1,41 @@
+{% include 'base.html' %}
+
+
+{% block content %}
+
+<h3>Update Info: {{ user.info }}</h3>
+
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset>
+            {{ form.first_name.label }}
+            {{ form.first_name(class='form-control', value=current_user.first_name) }}
+        </fieldset>
+        <fieldset>
+            {{ form.last_name.label }}
+            {{ form.last_name(class='form-control', value=current_user.last_name) }}
+        </fieldset>
+        <fieldset>
+            {{ form.username.label }}
+            {{ form.username(class='form-control', value=current_user.username) }}
+        </fieldset>
+        <fieldset>
+            {{ form.phone.label }}
+            {{ form.phone(class='form-control', value=current_user.phone) }}
+        </fieldset>
+        <fieldset>
+            {{ form.email.label }}
+            {{ form.email(class='form-control', value=current_user.email) }}
+        </fieldset>
+        <fieldset>
+            {{ form.address.label }}
+            {{ form.address(class='form-control', value=current_user.address) }}
+        </fieldset>
+        {{ form.submit(class='btn btn-success') }}
+    </div>
+
+</form>
+
+
+{% endblock content %}
