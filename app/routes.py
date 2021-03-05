@@ -1,7 +1,7 @@
 from app import app, db
 from flask import render_template, request, flash, redirect, url_for
 from app.forms import CustomerInfo, LoginForm
-from app.models import User, Cart
+from app.models import User, Product
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash
 
@@ -14,9 +14,9 @@ def index():
 
 
 @app.route('/login')
-def index():
+def login():
     title = "LOGIN"
-    if request.method = "POST" and form.validate():
+    if request.method == "POST" and form.validate():
         username = form.username.data
         password = form.password.data
 
@@ -25,13 +25,13 @@ def index():
     return render_template('login.html', title=title)
 
 @app.route('/mycart')
-def index():
+def cart():
     title = "CART"
-    cart = Cart.query.order_by(Cart.name.desc()).all)
+    cart = Cart.query.order_by(Cart.name.desc()).all()
     return render_template('mycart.html', title=title)
 
 @app.route('/signup')
-def index():
+def signup():
     title = "SIGN UP"
     form = CustomerInfo()
     if request.method == "POST" and form.validate():
@@ -49,7 +49,7 @@ def index():
         flash("You have been created")
         return redirect(url_for('index'))
 
-    return render_template('signup.html', title=title form=form)
+    return render_template('signup.html', title=title, form=form)
 
 
 @app.route('/logout')
@@ -73,7 +73,7 @@ def delete_info(user_id):
     return redirect(url_for('index'))
 
 
-@app.route('/myinfo/update/<int:user_id', methods=['GET', 'POST'])
+@app.route('/myinfo/update/<int:user_id>', methods=['GET', 'POST'])
 @login_required
 def update_info(user_id):
     user = User.query.get_or_404(user_id)
