@@ -2,49 +2,15 @@
 
 {% block content %}
 
-{{ product.image_url }}
-{{ product.category }}
-{{ product.name }}
-{{ product.price }}
-{{ product.description }}
+  {{ product.image_url }}
+  {{ product.category }}
+  {{ product.name }}
+  {{ product.price }}
+  {{ product.description }}
 
-
-
-<!-- If the user isn't signed in... -->
-    <!--  -->
-
-<!-- Add to Cart Button -->
-    <!-- If the user clicks the button and isn't signed in... -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Add to Cart</button>
-        <!-- Modal -->
-        <div class="modal fade" id="logineModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="loginModalLabel">Want to start a shopping cart?</h5>
-                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>You'll need to login in order to add experiences to your cart</p>
-                    <p>(Don't have an account? Sign up to get started)</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <form action="{{ url_for('signup') }}" method="POST">
-                        <input type="submit" value="Sign Up" class="btn btn-primary">
-                    </form>
-                    <form action="{{ url_for('login') }}" method="POST">
-                        <input type="submit" value="Login" class="btn btn-primary">
-                    </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-    <!-- If the user is signed in... -->
-        <ACTION THAT ADDS ITEM TO CART><button class="btn btn-primary"><a href="{{ url_for('"Add to Cart</button></a>
-
-
+        <div method="POST">
+          <a href="{{ url_for('addtocart', product_id=product.id) }}">Add to Cart</a>
+        </div>
 
 {% endblock content %}
+

@@ -18,6 +18,11 @@
         </fieldset>
         <br>
         <fieldset>
+            {{ form.username.label }}
+            {{ form.username(class="form-control", placeholder="Username") }}
+        </fieldset>
+        <br>
+        <fieldset>
             <p>{{ form.phone.label }} &nbsp <span style="color:red">(You must enter your number in the format (xxx) xxx-xxxx)</span></p>
             {{ form.phone(class="form-control", placeholder="(xxx) xxx-xxxx") }}
         </fieldset>
@@ -25,11 +30,6 @@
         <fieldset>
             {{ form.email.label }}
             {{ form.email(class="form-control", placeholder="Email") }}
-        </fieldset>
-        <br>
-        <fieldset>
-            {{ form.username.label }}
-            {{ form.username(class="form-control", placeholder="Username") }}
         </fieldset>
         <br>
         <fieldset>

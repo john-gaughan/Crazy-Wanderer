@@ -2,14 +2,40 @@
 
 {% block content %}
 
-<br>
-<h4>My Cart</h4>
-<br>
-{% for product in products %}
-<div class="class">
-    {{ product.image_url }}
-    <h4><a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product. }}</a></h4>
-    <p>{{ PRODUCT.content }}</p>
-</div>
+    <br>
+    <h4>My Cart</h4>
+    <br>
+    {% for item in items %}
+    <div class="class">
+        {{ item.product_br.image_url }}
+        <h6><a href="{{ url_for('product_detail', product_id=item.product_id) }}">{{ item.product_br.name }}</a></h6>
+        <p>{{ item.product_br.price }}</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteItem">Remove from Cart</button>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteItem" tabindex="-1" aria-labelledby="deleteItemLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteItemLabel">Remove from Cart - Are you sure?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        This action cannot be reversed. Are you sure you want to remove this item from your cart?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form action="{{ url_for('remove_from_cart', item_id=item.id) }}" method="POST">
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+    <br>
+    <p>Total: ${{ total }}</p>
 
 {% endblock content %}

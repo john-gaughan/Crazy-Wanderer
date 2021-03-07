@@ -8,24 +8,22 @@
     <div class="class"> 
         <!-- text within banner -->
         <div class="text_header">
-            Text here.
+            <p>Text within banner below nav bar</p>
         </div>
     </div>
     <!-- Box for product "squares" -->
     <div class="class">
-        <!-- product square1 -->
+        {% for product in products %}
+        <!-- product square -->
+        <a href="{{ url_for('product_detail', product_id=product.id) }}">
+            <img src='{{ product.image_url }}'>
+        </a>
         <div class="class">
             <!-- product hover text -->
-            <p></p>
+                {{ product.name }} -
+                {{ product.description }}
         </div>
-        <!-- product square2 -->
-        <div class="class">
-            <!-- product hover text -->
-        </div>
-        <!-- product square3 -->
-        <div class="class">
-            <!-- product hover text -->
-        </div>
+        {% endfor %}
     </div>
 </div>
 <br>
