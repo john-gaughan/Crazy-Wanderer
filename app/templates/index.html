@@ -1,10 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Banner Carousel -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-bs-target="myCarousel" data-slide-to="0" class="active"></li>
+        <li data-bs-target="myCarousel" data-slide-to="1"></li>
+        <li data-bs-target="myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="8000">
+        <div class="overlay-image" style="background-image: url(https://images.unsplash.com/photo-1574674487139-fdefb8f26f69?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1347&q=80)">
+            <div>
+                <h1>Explore the Unknown with Crazy Wanderer</h1>
+                <h3>Get outside your comfort zone</h3>
+                <a class='btn btn-primary' href="{{ url_for('signup') }}">Sign Up Today!</a>
+            </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-interval="6000">
+        <div class="overlay-image" style="background-image: url(https://www.resortdata.com/wp-content/uploads/2018/02/banner-931.jpg)">
+            <div>
+                <h1>Explore the Unknown with Crazy Wanderer</h1>
+                <h3>Get outside your comfort zone</h3>
+                <a class='btn btn-primary' href="{{ url_for('signup') }}">Sign Up Today!</a>
+            </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-interval="6000">
+        <div class="overlay-image" style="background-image: url(https://images.unsplash.com/photo-1544091441-9cca7fbe8923?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+            <div>
+                <h1>Explore the Unknown with Crazy Wanderer</h1>
+                <h3>Get outside your comfort zone</h3>
+                <a class='btn btn-primary' href="{{ url_for('signup') }}">Sign Up Today!</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-button carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"  data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-button carousel-control-next" type="button" data-bs-target="#carouselExampleFade"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only visually-hidden">Next</span>
+    </button>
+  </div>
+
 
 <!-- General container -->
 <div class="container">
-    <!-- Banner between nav bar and products -->
     <div class="class"> 
         <!-- text within banner -->
         <div class="text_header">

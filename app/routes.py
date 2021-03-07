@@ -127,3 +127,18 @@ def update_info(user_id):
         flash("You have been updated", 'info')
         return redirect(url_for('index'))
     return render_template('updateinfo.html', form=update_form)
+
+
+# footer-links
+@app.route('/contactus')
+def contactus():
+    title = 'Contact Us'
+    return render_template('/footer/contactus.html', title = title)
+@app.route('/faq')
+def faq():
+    title = 'FAQ'
+    return render_template('/footer/faq.html', title = title)
+@app.route('/termsofuse')
+def termsofuse():
+    title = 'Terms of Use'
+    return render_template('/footer/termsofuse.html', title = title)

@@ -1,31 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>Login</h1>
-
-<form action="" method="POST">
-    {{ form.hidden_tag() }}
-    <div class="form-group">
-        <fieldset>
-            {{ form.username.label }}
-            {{ form.username(class="form-control", placeholder='Enter here...') }}
-        </fieldset>
-        <br>
-        <fieldset>
-            {{ form.password.label }}
-            {{ form.password(class="form-control", placeholder='Enter here...') }}
-        </fieldset>
-        <br>
-        <fieldset>
-            {{ form.remember_me(class="form-check-input") }}
-            {{ form.remember_me.label(class="form-check-label") }}
-        </fieldset>
-        <br>
-        {{ form.submit(class='btn btn-success') }}
-        <br>
-        <br>
+<div class="gutter">
+    <div class="container heading">
+        <h1>Login</h1>
     </div>
-</form>
+    <div class="container input-form-box">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <fieldset>
+                    {{ form.username.label }}
+                    {{ form.username(class="form-control", placeholder='Enter here...') }}
+                </fieldset>
+                <br>
+                <fieldset>
+                    {{ form.password.label }}
+                    {{ form.password(class="form-control", placeholder='Enter here...') }}
+                </fieldset>
+                <br>
+                <fieldset>
+                    {{ form.remember_me(class="form-check-input") }}
+                    {{ form.remember_me.label(class="form-check-label") }}
+                </fieldset>
+                <br>
+                {{ form.submit(class='btn btn-primary') }}
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+</div>
 
 {% endblock content %}

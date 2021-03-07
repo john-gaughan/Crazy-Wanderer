@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="gutter init-height">
+    <div class="heading mt-3"><h1>FAQ</h1></div>
+    <div class='faq-dropdown'>
+        <p><a class="dropdown-qs space-between" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Why do I have to register for Crazy Wanderer? <i class="fas fa-chevron-down"></i>
+        </a></p>
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                        You must have an account with Crazy Wanderer to access our experiences and have liability agreements attached to your personal information. We require all our members
+                        to sign up so you can recieve rewards points based on what types of experiences you go on. If you already have an online account, you do not need to re-register.
+                        <br>
+                        <br>
+                        <div>** Check out our terms of use <a class='inline-a' href="{{ url_for('termsofuse') }}">here</a></div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="card card-body">
+                Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                </div>
+            </div>
+            </div> -->
+        </div>
+        <p><a class="dropdown-qs space-between" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Do I have to pay a membership fee? <i class="fas fa-chevron-down"></i></a></p>
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                    <div class="card card-body">
+                        Our program is free. You only pay for the experience that you want. Just use your username card number at checkout.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p><a class="dropdown-qs space-between" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">What if I don't have an email? <i class="fas fa-chevron-down"></i></a></p>
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample3">
+                    <div class="card card-body">
+                        A valid email address is required for Crazy Wanderer Program participation. You can get an email account for free through various email service providers. 
+                        If you subscribe to email notifications, you will be notified when new offers are available.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p><a class="dropdown-qs space-between" data-bs-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false" aria-controls="multiCollapseExample4">Need help? How do I contact Customer Service <i class="fas fa-chevron-down"></i></a></p>
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample4">
+                    <div class="card card-body">
+                        <div>To contact us, check out our <a class='inline-a' href="{{ url_for('contactus' )}}">Contact Us Page</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p><a class="dropdown-qs space-between" data-bs-toggle="collapse" href="#multiCollapseExample5" role="button" aria-expanded="false" aria-controls="multiCollapseExample5">How oftern are offers updated? <i class="fas fa-chevron-down"></i></a></p>
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample5">
+                    <div class="card card-body">
+                        Offers are updated daily. Visit our website or mobile app every time before you shop to get the most savings from just for U. If you subscribe to email notifications, you will be notified when new offers are available.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p><a class="dropdown-qs space-between" data-bs-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="multiCollapseExample6">Why do I get the message "You already have an account" when trying to register? <i class="fas fa-chevron-down"></i></a></p>
+        <div class="row">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample6">
+                    <div class="card card-body">
+                        You will get this message when the system finds an existing account with the phone number or email address you entered. 
+                        In that case, you can use the "Sign In" link instead of registering. If you forgot your password, 
+                        you can try the "Forgot Password" link to have it reset. If you are still experiencing problems, 
+                        contact our Customer Support Center toll free line at 1-877-258-2799.
+                    </div>
+                </div>
+            </div>
+        </div>
+            <p><button class="btn btn-primary mt-1" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3 multiCollapseExample4 multiCollapseExample5 multiCollapseExample6">Toggle All elements</button></p>
+    </div>
+</div>
+  {% endblock content %}

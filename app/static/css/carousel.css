@@ -1,0 +1,34 @@
+.carousel-item {
+    height: 32rem;
+    background: #777;
+    position: relative;
+    color: white;
+}
+.overlay-image {
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: .7;
+}
+.overlay-image>div {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 50px;
+    padding-left: 15%;
+    text-shadow: 1px 1px 5px black;
+}
+.carousel-button {
+    border: none;
+    opacity: 0
+}
+.carousel-button:hover {
+    opacity: .4;
+}
+.btn-primary {
+    background-color: #1a2b49;
+    border-color: #16233b;
+}
