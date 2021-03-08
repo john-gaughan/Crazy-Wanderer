@@ -64,7 +64,29 @@
 }
 .indiv-product {
     width: 100%;
-}.indiv-product>a>div {
+    position: relative;
+}
+.indiv-product:hover {
+    background-color: black;
+    opacity: .8;
+    transition-duration: .25s;
+}
+.indiv-product:hover > .background-text{
+    display: block;
+    padding: 7px;
+    opacity: .75;
+    transition-duration: .5s;
+}
+.background-text {
+    position: absolute;
+    overflow: hidden;
+    color: white;
+    padding: 0;
+    text-shadow: 2px 2px 5px black;
+    opacity: 0;
+    /* width: 0; */
+}
+.indiv-product>a>div {
     width: 100%;
 }
 .indiv-product > a > div> img{
