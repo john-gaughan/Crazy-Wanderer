@@ -21,6 +21,16 @@
     padding-left: 15%;
     text-shadow: 1px 1px 5px black;
 }
+.quote {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 50px;
+    padding-right: 17%;
+    padding-left: 15px;
+    text-align: right;
+    text-shadow: 1px 1px 4px black;
+}
 .carousel-button {
     border: none;
     opacity: 0

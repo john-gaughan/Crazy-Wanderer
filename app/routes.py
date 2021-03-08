@@ -9,8 +9,11 @@ from werkzeug.security import check_password_hash
 @app.route('/')
 @app.route('/index')
 def index():
-    title = "HOME"
-    return render_template('index.html', title=title)
+    context = {
+    'title': "Home",
+    'products': Product.query.all()
+    }
+    return render_template('index.html', **context)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -25,30 +28,28 @@ def login():
             flash('Incorrect email/password. Please try again.', 'danger')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
-        flash('You have successfully logged in!', 'success')
+        flash("You have successfully logged in!", "success")
         return redirect(url_for('index'))
     return render_template('login.html', title=title, form=form)
 
-@app.route('/addtocart', methods=['GET', 'POST'])
+@app.route('/product_detail/<int:product_id>')
 @login_required
-def addtocart():
-    if request.method == 'POST':
-        name = product.name
-        price = product.price
-        category = product.category
-        description = product.description
-        image_url = product.image_url
-        new_product_in_cart = Cart(post_title, content, user_id)
-        # Add the new post instance to the database
-        db.session.add(new_post)
-        # Commit
-        db.session.commit()
-        # Flash a message
-        flash('Your post is posted!', 'success')
-        # Redirect back to product_detail (we need to specify which product to go back to, 
-        # something like product_id = product.id )
-        return redirect(url_for('product_detail'))
-    return render_template('create_post.html', post=post, title=title)
+def product_detail(product_id):
+    product = Product.query.get_or_404(product_id)
+    title = f'{product.name.upper()}'
+    return render_template('product_detail.html', product=product, title=title) 
+
+@app.route('/mycart/add/<int:product_id>', methods=['GET', 'POST'])
+@login_required
+def addtocart(product_id):
+    product = Product.query.get_or_404(product_id)
+    product_key = product.id
+    user_key = current_user.id
+    new_product_in_cart = Cart(user_key, product_key)
+    db.session.add(new_product_in_cart)
+    db.session.commit()
+    flash(f"{ product.name } has been added to your cart!", "info")
+    return redirect(url_for('cart'))
 
 @app.route('/myinfo')
 @login_required
@@ -57,10 +58,28 @@ def myinfo():
     return render_template('myinfo.html', title=title)
 
 @app.route('/mycart', methods=['GET', 'POST'])
+@login_required
 def cart():
-    title = "CART"
-    cart = Cart.query.order_by(Cart.name.desc()).all()
-    return render_template('mycart.html', title=title, cart=cart)
+    context = {
+    'title': "My Cart",
+    'items': Cart.query.all(),
+    'total': 0.00
+    }
+    if not context['items']:
+        return render_template('mycart.html', **context)
+    else:
+        for item in context['items']:
+            context['total'] += float(item.product_br.price)
+    return render_template('mycart.html', **context)
+
+@app.route('/mycart/remove/<int:item_id>', methods=['POST'])
+@login_required
+def remove_from_cart(item_id):
+    item = Cart.query.get_or_404(item_id)
+    db.session.delete(item)
+    db.session.commit()
+    flash("Item has been removed from your cart", "danger")
+    return redirect(url_for('cart'))
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -91,42 +110,21 @@ def logout():
     flash("You have successfully logged out", 'primary')
     return redirect(url_for('index'))
 
-@app.route('/myinfo/delete/<int:user_id>', methods=['POST'])
-@login_required
-def delete_info(user_id):
-    user = User.query.get_or_404(user_id)
-
-    if user.id != current_user.id:
-        flash("You cannot delete other people")
-        return redirect(url_for('myinfo'))
-    db.session.delete(user)
-    db.session.commit()
-    flash("You have been deleted, have a good day!")
-    return redirect(url_for('index'))
 
 
-@app.route('/myinfo/update/<int:user_id>', methods=['GET', 'POST'])
-@login_required
-def update_info(user_id):
-    user = User.query.get_or_404(user_id)
-    update_form = CustomerInfo()
+# Commented out the update_info route for now, feel free to add if you want! Otherwise I'd vote for 
+# checkign with group if it's cool if we delete the feature.
 
-    if user.id != current_user.id:
-        flash("You cannot update others.")
-        return redirect(url_for('myinfo'))
-    if request.method == 'POST':
-        first_name = form.first_name.data
-        last_name = form.last_name.data
-        username = form.username.data
-        phone = form.phone.data
-        email = form.email.data
-        password = form.password.data
-        address = form.address.data
+# @app.route('/myinfo/update/<int:user_id>', methods=['GET', 'POST'])
+# @login_required
+# def update_info(user_id):
+#     user = User.query.get_or_404(user_id)
+#     update_form = CustomerInfo()
 
-        db.session.commit()
-        flash("You have been updated", 'info')
-        return redirect(url_for('index'))
-    return render_template('updateinfo.html', form=update_form)
+    #     db.session.commit()
+    #     flash("You have been updated", 'info')
+    #     return redirect(url_for('index'))
+    # return render_template('updateinfo.html', form=update_form)
 
 
 # footer-links
@@ -142,3 +140,44 @@ def faq():
 def termsofuse():
     title = 'Terms of Use'
     return render_template('/footer/termsofuse.html', title = title)
+@app.route('/aboutus')
+def aboutus():
+    title = 'About Us'
+    return render_template('/footer/aboutus.html', title = title)
+@app.route('/careers')
+def careers():
+    title = 'Careers'
+    return render_template('/footer/careers.html', title = title)
+@app.route('/foremployees')
+def foremployees():
+    title = 'For Employees'
+    return render_template('/footer/foremployees.html', title = title)
+@app.route('/privacypolicy')
+def privacypolicy():
+    title = 'Privacy Policy'
+    return render_template('/footer/privacypolicy.html', title = title)
+@app.route('/legal')
+def legal():
+    title = 'Legal'
+    return render_template('/footer/legal.html', title = title)
+@app.route('/sustainability')
+def sustainability():
+    title = 'Sustainability'
+    return render_template('/footer/sustainability.html', title = title)
+@app.route('/affiliatepartner')
+def affiliatepartner():
+    title = 'Affiliate Partner'
+    return render_template('/footer/affiliatepartner.html', title = title)
+#     if request.method == 'POST':
+#         first_name = form.first_name.data
+#         last_name = form.last_name.data
+#         username = form.username.data
+#         phone = form.phone.data
+#         email = form.email.data
+#         password = form.password.data
+#         address = form.address.data
+
+#         db.session.commit()
+#         flash("You have been updated", 'info')
+#         return redirect(url_for('index'))
+#     return render_template('updateinfo.html', form=update_form)

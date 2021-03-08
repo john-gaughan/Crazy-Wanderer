@@ -96,7 +96,7 @@ footer {
     height: 20x;
     margin-right: 4px;
 }
-ul>li>a:hover{
+ul.footer-list>li>a:hover{
     text-decoration: underline;
     color: #eee;
     text-shadow: -2px 2px 5px black;

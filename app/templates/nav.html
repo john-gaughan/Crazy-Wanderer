@@ -1,22 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-hat-wizard"></i> Crazy Wanderer</a>
+      <a class="nav-response navbar-brand" href="{{ url_for('index') }}"><i class="fas fa-hat-wizard nav-show"></i> Crazy Wanderer</a>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item sho-gone">
             <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
           </li>
           {% if current_user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('cart') }}">My Cart</a>
+          <li class="nav-item nav-response">
+            <a class="nav-link" href="{{ url_for('cart') }}"><i class="fas fa-shopping-cart nav-show"></i> <div class="sho-gone">My Cart</div></a>
           </li>
           {% endif %}
         </ul>
         <ul class="navbar-nav ms-auto">
           {% if current_user.is_authenticated %}
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown nav-response">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              My Account
+              <i class="fas fa-user-alt"></i> <div class="sho-gone">My Account</div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ url_for('myinfo') }}">My Info</a></li>
@@ -25,12 +25,14 @@
             </ul>
           </li>
           {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a>
-          </li>
-          <li class='nav-item'>
-            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-          </li>
+          <div class='dis-flex navbar-expand-sm'>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a>
+            </li>
+            <li class='nav-item'>
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+          </div>
           {% endif %}
         </ul>
       </div>
