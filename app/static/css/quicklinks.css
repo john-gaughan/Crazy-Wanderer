@@ -1,0 +1,46 @@
+.contactus-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+@media (min-width: 768px){
+    .contactus-container{
+        display: flex;
+        flex-direction: row;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
+.contactus-blocks {
+    margin: 30px;
+    border: 1px solid #eee;
+    padding-top: 10px;
+}
+.faq-dropdown{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin-left: 18%;
+    margin-right: 18%;
+    /* background-color: #eee;
+    border: 1px solid black; */
+
+}
+.dropdown-qs {
+    color: black;
+    font-size: 18;
+}
+.space-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+.inline-a {
+    color: dodgerblue;
+}
+.center {
+    text-align: center;
+}

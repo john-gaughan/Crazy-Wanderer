@@ -1,0 +1,15 @@
+.sho-gone {
+    display: none;
+
+}
+.navbar-brand {
+    font-size: 1.1rem;
+}
+@media (min-width: 576px) {
+    .sho-gone {
+        display: inline-block;
+    }
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+}

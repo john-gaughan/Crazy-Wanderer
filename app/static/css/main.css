@@ -1,0 +1,339 @@
+.gutter {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.product-detail-container {
+    display: flex;
+    justify-content: center;
+}
+.product-detail {
+    width: 500px;
+}
+.box {
+    border: 1px solid #eee;
+    margin-top: 5px;
+    padding: 20px;
+}
+.product-copy{
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 660px) {
+    .product-copy{
+        display: flex;
+        flex-direction: row;
+    }
+}
+.product-copy-label {
+    width: 24%;
+}
+.input-form-box {
+    max-width:500px;
+    padding: 15px;
+    border: 1px solid #eee;
+}
+.heading {
+    text-align: center;
+    margin-top: 5vh;
+}
+.init-height {
+    min-height: 56vh;
+}
+.my-info {
+    width: 18rem;
+    overflow: auto;
+}
+.product-container {
+    display: flex;
+    flex-direction: col;
+    flex-wrap: wrap;
+}
+@media (min-width: 768px){
+    .product-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+@media (min-width: 1400px){
+    .product-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+.indiv-product {
+    width: 100%;
+    position: relative;
+}
+.indiv-product:hover {
+    background-color: black;
+    opacity: .8;
+    transition-duration: .25s;
+}
+.indiv-product:hover > .background-text{
+    display: block;
+    padding: 7px;
+    opacity: .75;
+    transition-duration: .5s;
+}
+.background-text {
+    position: absolute;
+    overflow: hidden;
+    color: white;
+    padding: 0;
+    text-shadow: 2px 2px 5px black;
+    opacity: 0;
+    /* width: 0; */
+}
+.indiv-product>a>div {
+    width: 100%;
+}
+.indiv-product > a > div> img{
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+}
+@media (min-width: 520px){
+    .indiv-product {
+        width: 100%;
+        height: 454px;
+    }
+    .indiv-product > a > div> img{
+        width: 454px;
+        height: 454px;
+    }
+}
+@media (min-width: 692px){
+    .indiv-product {
+        width: 100%;
+        height: 540px;
+    }
+    .indiv-product > a > div> img{
+        width: 540px;
+        height: 540px;
+    }
+}
+@media (min-width: 768px){
+    .indiv-product {
+        width: 100%;
+        height: 696px;
+    }
+    .indiv-product > a > div> img{
+        width: 696px;
+        height: 696px;
+    }
+}
+@media (min-width: 892px){
+    .indiv-product {
+        width: 50%;
+        height: 336px;
+    }
+    .indiv-product > a > div> img{
+        width: 336px;
+        height: 336px;
+    }
+}
+@media (min-width: 992px){
+    .indiv-product {
+        width: 50%;
+        height: 456px;
+    }
+    .indiv-product > a > div> img{
+        width: 456px;
+        height: 456px;
+    }
+}
+@media (min-width: 1200px){
+    .indiv-product {
+        width: 33%;
+        height: 360px;
+    }
+    .indiv-product > a > div> img{
+        width: 361px;
+        height: 361px;
+    }
+}
+@media (min-width: 1258px){
+    .indiv-product {
+        width: 33%;
+        height: 360px;
+    }
+    .indiv-product > a > div> img{
+        width: 361px;
+        height: 361px;
+    }
+}
+@media (min-width: 1400px){
+    .indiv-product {
+        width: 33%;
+        height: 420px;
+    }
+    .indiv-product > a > div> img{
+        width: 420px;
+        height: 420px;
+    }
+}
+.dis-flex {
+    display: flex;
+}
+.just-cen {
+    justify-content: center;
+    text-align: center;
+}
+@media (max-width: 991px){
+    .nav-response {
+        display: initial
+    }
+}
+.cart-item-box {
+    border: 1px solid #eee;
+    background-color: rgb(252, 252, 252);
+    margin-top: 5px;
+    padding: 20px 10px 5px 10px;
+    display: flex;
+    flex-direction: column;
+}
+.cart-item-box > img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.cart-item-name {
+    width: 100%;
+    padding: 20px 10px 5px 10px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.cart-item-name >h4>a{
+    color: black;
+}
+.cart-item-price {
+    padding: 10px 10px 5px 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    justify-content: center;
+    text-align: center;
+}
+.cart-item-price > p {
+    margin-bottom: 1px;
+}
+.btn-height {
+    height: 60px;
+    text-align: center;
+}
+.cart-item-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 552px) {
+    .cart-item-box {
+        border: 1px solid #eee;
+        background-color: rgb(252, 252, 252);
+        margin-top: 5px;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+    }
+    .cart-item-box > img{
+        width: 20%;
+        max-height: 150px;
+    }
+    .cart-item-name {
+        width: 40%;
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    .cart-item-name >h4>a{
+        color: black;
+    }
+    .cart-item-price {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+    }
+    .btn-height {
+        height: 60px;
+        text-align: center;
+    }
+    .cart-item-btn {
+        display: flex;
+        align-items: center;
+    }
+}
+.aboutus-names>li{
+    padding: 5px;
+    font-size: 1.25rem;
+}
+
+/* hot air ballon in albuquerque: https://images.unsplash.com/photo-1514923995763-768e52f5af87?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80 */
+
+/* volcano boarding in Nicaragua: https://images.unsplash.com/photo-1565365906073-6d5bd6b9013c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80 */
+
+/* rock climbing in thailand: https://images.unsplash.com/photo-1522163182402-834f871fd851?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1293&q=80 */
+
+/* swimming with dolphins in new zealand: https://images.unsplash.com/photo-1532903612772-e4285f11f276?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80 */
+
+/* skydive past Everest in nepal: https://www.everestskydive.com/images/speasyimagegallery/albums/9/images/everestskydive1.jpg */
+
+/* world's steepest rollercoaster in Japan: https://images.unsplash.com/photo-1465779171454-aa85ccf23be6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1353&q=80 */
+
+/* running of the bulls in spain: http://inapcache.boston.com/universal/site_graphics/blogs/bigpicture/runningbulls_2013/bp1.jpg */
+
+/* kaya over a waterfall at Palouse Falls: https://cdn.cnn.com/cnnnext/dam/assets/200629095229-02-gbs-kayak-waterfall-restricted.jpg */
+
+/* hot springs in iceland: https://www.nordicvisitor.com/images/iceland/blue-lagoon-in-winter.jpg */
+
+/* dog sled racing in alaska: https://images.unsplash.com/photo-1605383049589-4ea5f4880988?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1478&q=80 */
+
+/* explore the jungles in indonesia: https://images.unsplash.com/photo-1526309738290-e3ecd227428d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80 */
+
+/* join the circus as an extra in finland: https://images.unsplash.com/photo-1589982790148-3b281287d529?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80 */
+
+
+
+/* shoha's fontawesome */
+/* <script src="https://kit.fontawesome.com/3d81577920.js" crossorigin="anonymous"></script> */
+/* facebook: <i class="fab fa-facebook-f"></i> */
+/* twitter: <i class="fab fa-twitter"></i> */
+/* instagram: <i class="fab fa-instagram"></i> */
+/* pintrest: <i class="fab fa-pinterest-p"></i> */
+/* youtube: <i class="fab fa-youtube"></i> */
+
+/* user: <i class="fas fa-user-alt"></i> */
+/* cart: <i class="fas fa-shopping-cart"></i> */
+/* wizard hat: <i class="fas fa-hat-wizard"></i> */
+/* hamburger dropdown: <i class="fas fa-bars"></i> */
+
+
+/* payment */
+/*     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; */
+/* format:  */
+/* <div><img></div> */
+
+/* paypal: https://cdn.getyourguide.com/tf/assets/static/payment-methods/paypal_border.svg */
+/* mastercard: https://cdn.getyourguide.com/tf/assets/static/payment-methods/mastercard.svg */
+/* visa: https://cdn.getyourguide.com/tf/assets/static/payment-methods/visa.svg */
+/* amex: https://cdn.getyourguide.com/tf/assets/static/payment-methods/amex.svg */
+/* discover: https://cdn.getyourguide.com/tf/assets/static/payment-methods/discover.svg */
+/* g-pay: https://cdn.getyourguide.com/tf/assets/static/payment-methods/googlepay.svg */
+/* apple pay: https://cdn.getyourguide.com/tf/assets/static/payment-methods/applepay.svg */
+/* jcb: https://cdn.getyourguide.com/tf/assets/static/payment-methods/jcb.svg */
+
+/* get it on google play: https://cdn.getyourguide.com/tf/assets/static/badges/google-play-badge-en-us.svg */
+/* download on the app store: https://cdn.getyourguide.com/tf/assets/static/badges/app-store-badge-en-us.svg */
+
+/* footer: quicklinks content us:
+<ul>
+    <li><a href='thingy'> Name </a></li>
+    <li><a href='thingy'> Name </a></li>
+    <li><a href='thingy'> Name </a></li>
+</ul> */

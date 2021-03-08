@@ -28,7 +28,7 @@ def login():
             flash('Incorrect email/password. Please try again.', 'danger')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
-        flash('You have successfully logged in!', 'success')
+        flash("You have successfully logged in!", "success")
         return redirect(url_for('index'))
     return render_template('login.html', title=title, form=form)
 
@@ -48,8 +48,8 @@ def addtocart(product_id):
     new_product_in_cart = Cart(user_key, product_key)
     db.session.add(new_product_in_cart)
     db.session.commit()
-    flash(f'{ product.name } has been added to your cart!', 'success')
-    return render_template('index.html', products=Product.query.all())
+    flash(f"{ product.name } has been added to your cart!", "info")
+    return redirect(url_for('cart'))
 
 @app.route('/myinfo')
 @login_required
@@ -62,7 +62,7 @@ def myinfo():
 def cart():
     context = {
     'title': "My Cart",
-    'items': Cart.query.all(),
+    'items': Cart.query.filter(Cart.user_id==current_user.id).all(),
     'total': 0.00
     }
     if not context['items']:
@@ -79,7 +79,7 @@ def remove_from_cart(item_id):
     db.session.delete(item)
     db.session.commit()
     flash("Item has been removed from your cart", "danger")
-    return render_template('mycart.html')
+    return redirect(url_for('cart'))
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -121,6 +121,53 @@ def logout():
 #     user = User.query.get_or_404(user_id)
 #     update_form = CustomerInfo()
 
+    #     db.session.commit()
+    #     flash("You have been updated", 'info')
+    #     return redirect(url_for('index'))
+    # return render_template('updateinfo.html', form=update_form)
+
+
+# footer-links
+@app.route('/contactus')
+def contactus():
+    title = 'Contact Us'
+    return render_template('/footer/contactus.html', title = title)
+@app.route('/faq')
+def faq():
+    title = 'FAQ'
+    return render_template('/footer/faq.html', title = title)
+@app.route('/termsofuse')
+def termsofuse():
+    title = 'Terms of Use'
+    return render_template('/footer/termsofuse.html', title = title)
+@app.route('/aboutus')
+def aboutus():
+    title = 'About Us'
+    return render_template('/footer/aboutus.html', title = title)
+@app.route('/careers')
+def careers():
+    title = 'Careers'
+    return render_template('/footer/careers.html', title = title)
+@app.route('/foremployees')
+def foremployees():
+    title = 'For Employees'
+    return render_template('/footer/foremployees.html', title = title)
+@app.route('/privacypolicy')
+def privacypolicy():
+    title = 'Privacy Policy'
+    return render_template('/footer/privacypolicy.html', title = title)
+@app.route('/legal')
+def legal():
+    title = 'Legal'
+    return render_template('/footer/legal.html', title = title)
+@app.route('/sustainability')
+def sustainability():
+    title = 'Sustainability'
+    return render_template('/footer/sustainability.html', title = title)
+@app.route('/affiliatepartner')
+def affiliatepartner():
+    title = 'Affiliate Partner'
+    return render_template('/footer/affiliatepartner.html', title = title)
 #     if request.method == 'POST':
 #         first_name = form.first_name.data
 #         last_name = form.last_name.data
