@@ -1,4 +1,4 @@
-"""signup fixed i think
+"""
 
 Revision ID: 870ee775abb8
 Revises: 3d008127076d
