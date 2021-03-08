@@ -62,7 +62,7 @@ def myinfo():
 def cart():
     context = {
     'title': "My Cart",
-    'items': Cart.query.all(),
+    'items': Cart.query.filter(Cart.user_id==current_user.id).all(),
     'total': 0.00
     }
     if not context['items']:
