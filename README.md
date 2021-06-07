@@ -4,7 +4,6 @@ A mock e-commerce website for high-adventure experiences around the world. Writt
 
 <ins>Contributors</ins>
 <br>
-<br>
 [@smtsuchi]( https://github.com/smtsuchi ) - CSS
 <br>
 [@katerijy]( https://github.com/katerijy ) - Forms
