@@ -1,6 +1,6 @@
 # Crazy-Wanderer
 
-A mock e-commerce website for high-adventure experiences around the world. Written in Python, HTML, and CSS, with Flask as a microframework. 
+Mock e-commerce website for high-adventure experiences around the world. Written in Python, HTML, and CSS, with Flask as a microframework. 
 
 <ins>Contributors</ins>
 <br>
