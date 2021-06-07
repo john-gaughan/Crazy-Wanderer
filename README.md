@@ -12,4 +12,4 @@ Mock e-commerce website for high-adventure experiences around the world. Written
 <br>
 [@MaikoChang]( https://github.com/MaikoChang ) - Models
 <br>
-Myself - HTML and GitHub Project Manager
+[@john-gaughan]( https://github.com/john-gaughan ) - HTML and GitHub Project Manager
